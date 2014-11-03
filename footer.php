@@ -10,7 +10,7 @@
 
 				<?php echo $footer_text = get_option('nbm_footer_text'); if( !empty($footer_text) ) { echo '<br />'; } ?>
 				&copy; <?php bloginfo('name'); ?> <?php echo date('Y'); ?>. All rights reserved.<br />
-				<a href="http://www.nbm.com.au">Website by NBM</a>
+				<a href="http://www.mcnam.ee">Website by Matt Mcnamee</a>
 	    </div><!--/grid-->
 	</div> <!-- /.container -->
 </div><!-- /#footer -->

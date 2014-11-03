@@ -27,6 +27,7 @@
 // CUSTOM POST TYPES
 // ************************************************
 	// require_once(TEMPLATEPATH . '/includes/banner-custom-post-type.php');
+	// require_once(TEMPLATEPATH . '/includes/faqs-custom-post-type.php');
 
 
 // ************************************************
@@ -73,19 +74,6 @@
 	add_theme_support('post-thumbnails');
 	// set_post_thumbnail_size(200, 113); // 200 wide by 113 tall, box resize mode
 	add_image_size('hero-banner', 988, 300); // Slider Featured image size
-
-
-// ************************************************
-// GRAB CUSTOM FIELDS
-// ************************************************
-	function get_custom_field_value ( $szKey, $bPrint = false ) {
-		global $post;
-		$szValue = get_post_meta($post->ID, $szKey, true);
-		if ( $bPrint == false )
-			return $szValue;
-		else echo $szValue;
-	}
-
 
 // ************************************************
 // WP3 MENU
