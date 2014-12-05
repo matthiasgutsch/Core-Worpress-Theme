@@ -17,12 +17,12 @@ Tags:         clean, responsive
 }
 
 html {
-    background : #fff;
+    background : #fff; /* Overwritten in On Canvas */
     min-height : 100%;
 }
 
 body {
-    background : #fff;
+    background : #fff; /* Overwritten in On Canvas */
     height     : auto;
     float      : left;
     width      : 100%;
@@ -411,280 +411,201 @@ table.invisibleTable tr, table.invisibleTable td {
 /* ================================= */
 /* Navigation Menu DROP DOWN MENU */
 /* ================================= */
-.header_menu {
-    float: right;
-}
-
-.header_menu > ul {
-    height                : 34px;
-    background-color      : #fff;
-    float                 : right;
-    -webkit-border-radius : 4px;
-    -webkit-border-radius : 4px;
-    -moz-border-radius    : 4px;
-    -o-border-radius      : 4px;
-    border-radius         : 4px;
-}
-
-.header_menu ul {
+/* Superfish Default */
+ul#mainNav, ul#mainNav * {
     margin: 0;
+    padding: 0;
+    list-style: none;
+  position: relative;
 }
-
-.header_menu ul li {
-    list-style : none;
-    float      : left;
-    position   : relative;
+ul#mainNav li {
+    position: relative; /* Change to position: static; for left aligned menu */
 }
-
-.header_menu ul > li {
-    margin : 0 0 0 0px;
+ul#mainNav li.sf-mega-wrap {
+  position: static; /* OR put this class on the parent (of .sf-mega) li to left align */
 }
-
-.header_menu ul > li.first {
-    margin-left : 0;
+ul#mainNav ul,
+ul#mainNav .sf-mega {
+    position: absolute;
+    display: none;
+    top: 100%;
+    left: 0;
+    z-index: 99;
 }
-
-.header_menu ul li a {
-    padding            : 7px 15px;
-    color              : #000;
-    display            : block;
+ul#mainNav .sf-mega ul {
+  display: block;
+  float: left;
+  width: 100%;
+  position: relative;
 }
-
-.header_menu ul > li > a {
-    height : 20px;
+ul#mainNav > li {
+    float: left;
 }
-
-.header_menu > ul > li:first-child a {
-    -webkit-border-top-left-radius    : 4px;
-    -webkit-border-bottom-left-radius : 4px;
-    -moz-border-top-left-radius       : 4px;
-    -moz-border-bottom-left-radius    : 4px;
-    -o-border-top-left-radius         : 4px;
-    -o-border-bottom-left-radius      : 4px;
-    border-top-left-radius            : 4px;
-    border-bottom-left-radius         : 4px;
+ul#mainNav li:hover > ul,
+ul#mainNav li.sfHover > ul,
+ul#mainNav  li:hover > .sf-mega,
+ul#mainNav  li.sfHover > .sf-mega {
+    display: block;
 }
-
-.header_menu > ul > li:last-child a {
-    -webkit-border-top-right-radius    : 4px;
-    -webkit-border-bottom-right-radius : 4px;
-    -moz-border-top-right-radius       : 4px;
-    -moz-border-bottom-right-radius    : 4px;
-    -o-border-top-right-radius         : 4px;
-    -o-border-bottom-right-radius      : 4px;
-    border-top-right-radius            : 4px;
-    border-bottom-right-radius         : 4px;
-}
-
-.header_menu ul li a:hover, .header_menu ul li.current_page_item > a {
-    background : #D60065;
-    color      : #ffffff;
-}
-
-.header_menu ul ul {
-    position : absolute;
-    width    : 180px; /* left offset of submenus need to match (see below) */
-    top      : -999px;
-}
-
-.header_menu ul ul li {
-    width : 100%;
-}
-
-.header_menu ul li:hover {
-    visibility : inherit; /* fixes IE7 'sticky bug' */
-}
-
-.header_menu ul li:hover ul, .header_menu ul li.sfHover ul {
-    left    : 0;
-    top     : 34px; /* match top ul list item height */
-    z-index : 99;
-}
-
-.header_menu ul li:hover li ul, .header_menu ul li.sfHover li ul {
-    top : -999em;
-}
-
-.header_menu ul li li:hover ul, .header_menu ul li li.sfHover ul {
-    left : 180px; /* match ul width */
-    top  : 0;
-}
-
-.header_menu ul li li:hover li ul, .header_menu ul li li.sfHover li ul {
-    top : -999em;
-}
-
-.header_menu ul li li li:hover ul, .header_menu ul li li li.sfHover ul {
-    left : 180px; /* match ul width */
-    top  : 0;
-}
-
-.header_menu ul ul li a {
-    margin     : 0;
-    padding    : 3px 10px;
-    background : #fff;
-    font-size: 12px;
-    line-height: 1.7;
-}
-
-/* ================================= */
-/* Mobile Navigation */
-/* ================================= */
-
-/* Resets for container */
-#mobile_nav {
-    position : absolute;
-    top      : 0;
-    z-index  : 9999;
-    right    : 0;
-    width    : 40%;
-    float    : left;
-    margin   : 0;
-    padding  : 0;
-}
-
-/* Background colour for menu and active icon/button */
-html.mobile_nav_is_active,
-#mobile_nav .mobile_nav_wrap,
-#mobile_nav #mobile_nav_launch.active_mobile_launch {
-    background-color : #363A39;
-}
-
-#mobile_nav .mobile_nav_wrap,
-#mobile_nav ul li,
-#mobile_nav ul li a {
-    -webkit-box-sizing : border-box;
-    -moz-box-sizing    : border-box;
-    box-sizing         : border-box;
-}
-
-/* Style the icon/button */
-#mobile_nav #mobile_nav_launch {
-    height          : 67px !important;
-    width           : 77px !important;
-    line-height     : 21px;
-    position        : relative;
-    top             : 0;
-    right           : 0;
-    border-radius   : 0;
-    background      : url(images/buttons/nav.png) 45% center no-repeat;
-    background-size : 60% 60%;
-    text-indent     : -9999px;
-    float           : right;
-    border-left     : 1px solid rgba(0, 0, 0, 0.1);
-    cursor          : pointer;
-    z-index         : 99;
-    display         : block;
-}
-
-/* Actual Menu Wrapper - Important stuff */
-#mobile_nav .mobile_nav_wrap {
-    position   : fixed;
-    width      : 80%;
-    float      : left;
-    right      : -80%;
-    box-shadow : 0 0 0 #000;
-    height     : 100%;
-    z-index    : 98;
-    overflow   : auto;
-    display    : block;
-}
-
-#mobile_nav .mobile_nav_wrap_active {
-    right : 0;
-}
-
-html,
-#mobile_nav .mobile_nav_wrap {
-    -webkit-transition : right 0.2s linear;
-    -moz-transition    : right 0.2s linear;
-    transition         : right 0.2s linear;
-}
-
-html {
-    position : relative !important;
-    width    : 100%;
-    right    : 0;
-}
-
-html.mobile_nav_is_active {
-    right : 80%;
-    overflow: hidden;
-}
-
-#mobile_nav ul {
-    float         : none;
-    position      : relative;
-    top           : 0;
-    left          : 0;
-    display       : block;
-    width         : 100%;
-    list-style    : none;
-    margin        : 0 auto !important;
-    padding       : 0 !important;
-    border-top    : 5px solid #363a39;
-    border-bottom : 5px solid #363a39;
-}
-
-#mobile_nav ul li {
-    width         : 100%;
-    display       : block;
-    padding       : 0 25px;
-    float         : left;
-    width         : 100%;
-    border-bottom : 1px solid #444;
-}
-
-/*---*/
-
-#mobile_nav ul li a {
-    color       : #fff;
-    font-size   : 18px;
-    display     : block;
-    float       : left;
-    width       : 100%;
-    font-weight : bold;
-    padding     : 12px 0;
+ul#mainNav a {
+    display: block;
     position: relative;
 }
-
-#mobile_nav ul li a:active {
-    text-shadow : -1px -1px 0 #111;
-}
-
-#mobile_nav ul ul {
-    padding-left : 20px;
-}
-
-#mobile_nav .mobile_nav_wrap > ul > li > ul {
-    display: none; /* HIDE INITIALLY */
-}
-
-#mobile_nav ul ul li {
-    border-bottom: 0;
-}
-
-#mobile_nav ul ul li a {
-    font-weight  : normal;
-    font-size    : 13px;
-}
-
-span.mobile_nav_down_more {
-    position: absolute;
-    height: 100%;
-    width: 20%;
-    text-align: right;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
-    display: block;
-    z-index: 9;
-    right: 0;
+ul#mainNav ul ul {
     top: 0;
-    padding: 10px 0 0;
-    outline: none;
+    left: 100%;
+}
+ul#mainNav .sf-mega {
+  display: none;
+  position: absolute;
+  float: left;
+  top: 100%;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+ul#mainNav .sf-mega ul ul {
+  left: 0;
+  display: none !important; /* Hides 3x level deep under mega */
+}
+ul#mainNav .sf-mega > ul > li > ul {
+  opacity: 1 !important;
+  display: block !important; /* Shows 2x level deep under mega */
+}
+
+/* Superfish Skin */
+ul#mainNav {
+    float: left;
+    margin-bottom: 1em;
+  width: 700px;
+}
+ul#mainNav ul.
+ul#mainNav .sf-mega {
+    min-width: 200px;
+    *width: 100%;
+}
+ul#mainNav li {
+    -webkit-transition: background .2s;
+    transition: background .2s;
+}
+ul#mainNav ul li {
+  white-space: nowrap;
+  *white-space: normal;
+}
+ul#mainNav li:hover,
+ul#mainNav li.sfHover {
+    -webkit-transition: none;
+    transition: none;
+}
+ul#mainNav > li {
+  max-width: 20%;
+  display: block;
+  float: left;
+}
+ul#mainNav > li > a {
+  display: table;
+  position: relative;
+  text-align: center;
+  height: 54px;
+  float: left;
+  font-size: 15px;
+  line-height: 18px;
+}
+ul#mainNav a,
+ul#mainNav a:visited {
+  background: #ED5C33;
+  color: #fff;
+    border-left: 1px solid rgba(0,0,0,0.2);
+    padding: 14px 15px;
+    text-decoration: none;
+    zoom: 1;
+}
+ul#mainNav a:hover {
+  background: #B64627;
+}
+ul#mainNav li:first-child a {
+  border-left: 0;
+}
+ul#mainNav > li > a > span {
+  display: table-cell;
+  vertical-align: middle;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Drop downs */
+ul#mainNav ul a,
+ul#mainNav ul a:visited {
+  border: 0;
+  padding: 8px 15px;
+  background: #eee;
+  color: #777;
+  font-size: 13px;
+}
+ul#mainNav ul a:hover {
+  background: #eee;
+  color: #000;
+}
+
+/* Mega Menu */
+ul#mainNav .sf-mega {
+  width: 600px;
+}
+ul#mainNav .sf-mega,
+ul#mainNav .sf-mega > ul {
+  background-color: #eee;
+}
+ul#mainNav .sf-mega > ul {
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  width: 33%;
+  
+  border-right: 1px solid #ccc;
+  border-width: 1px;
+  border-right-style: solid;
+  -webkit-border-image: 
+    -webkit-gradient(linear, 0 0, 0 100%, from(#ccc), to(rgba(0, 0, 0, 0))) 1 100%;
+  -webkit-border-image: 
+    -webkit-linear-gradient(#ccc, rgba(0, 0, 0, 0)) 1 100%;
+  -moz-border-image:
+    -moz-linear-gradient(#ccc, rgba(0, 0, 0, 0)) 1 100%;    
+  -o-border-image:
+    -o-linear-gradient(#ccc, rgba(0, 0, 0, 0)) 1 100%;
+  border-image:
+    linear-gradient(to bottom, #ccc, rgba(0, 0, 0, 0)) 1 100%;
+  border-left: 0;
+}
+ul#mainNav .sf-mega > ul:last-of-type {
+  border-right: 0;
+}
+ul#mainNav .sf-mega > ul > li > a {
+  font-weight: bold;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+/* ================================= */
+/* Off Canvas Menu */
+/* ================================= */
+html, body, .onCanvas {
+    background: #FFF;
+}
+
+a.offCanvas_trigger {
+    margin: 2px 0 0 0;
+    height: 22px;
 }
 
 /* ================================= */

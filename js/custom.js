@@ -11,6 +11,7 @@
 /* ========================================== */
 function init_Frontend($) {
     init_Superfish($);
+    init_OffCanvasMenu($);
     init_CustomSelect($);
     init_Colorbox($);
     init_Tooltips($);
@@ -25,18 +26,21 @@ jQuery(document).ready(function ($) {
 /* Superfish */
 /* ========================================== */
 function init_Superfish($) {
-    $('.header_menu ul').superfish({
-    speed:         'normal',
-    autoArrows:    false,
-    dropShadows:   false,
-    onInit:        function(){
-    $('.header_menu ul' + ' li').each(function(){
-        $(this).addClass('sfHover');
-    });
+    var sfOptions = {
+      popUpSelector: 'ul, .sf-mega',
+      speed: 'normal',
+      speedOut: 'normal',
+      cssArrows: false,
+      animation: {opacity:'show'},
     }
-    }).supposition();
+    var mainNav = $('#mainNav').superfish(sfOptions);
 }
 
+/* Off-Canvas menu */
+/* ========================================== */
+function init_OffCanvasMenu($) {
+    $('#offcanv_menu').offCanvasMenu();
+}
 
 /* Custom Select Boxes */
 /* ========================================== */
