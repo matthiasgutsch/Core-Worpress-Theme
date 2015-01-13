@@ -44,7 +44,6 @@ if ( !function_exists( 'theme_styles' ) ) {
 		$last_update = '130816';
 
 		$stylesheets = array(
-			array('grid', get_template_directory_uri() . '/css/grid.min.css'),
 			array('plugins', get_template_directory_uri() . '/css/plugins.css'),
 			array('style', get_bloginfo('stylesheet_url')),
 			array('layout', get_template_directory_uri() . '/css/layout.css'),
